@@ -1,0 +1,401 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+
+    --background: 0 0% 97%;
+    --foreground: 0 0% 29%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 29%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 29%;
+    --primary: 94 98% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 29%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 47%;
+    --accent: 199 92% 54%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 65%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 94 98% 40%;
+
+    --brand: 94 98% 40%;
+    --brand-dark: 95 98% 32%;
+    --brand-light: 93 80% 49%;
+    --aqua: 199 92% 54%;
+    --sun: 51 100% 50%;
+    --tangerine: 35 100% 50%;
+    --coral: 0 100% 65%;
+    --grape: 277 100% 75%;
+    --ink: 0 0% 29%;
+    --ink-soft: 0 0% 47%;
+    --line: 0 0% 90%;
+    --surface: 0 0% 97%;
+
+    /* Structural tones: cards, hairlines, chips and progress tracks. */
+    --frame: 0 0% 93%;
+    --tile: 0 0% 96%;
+    --track: 0 0% 94%;
+    --hover: 0 0% 97%;
+    --ink-faint: 0 0% 70%;
+    --brand-ink: 95 97% 32%;
+    --brand-tint: 96 78% 93%;
+    --sun-ink: 45 100% 33%;
+    --tangerine-ink: 28 100% 38%;
+    --card-shadow: 0 2px 0 hsl(var(--frame)), 0 14px 32px -22px hsl(0 0% 29% / 0.28);
+
+    --radius: 1.25rem;
+    --font-heading: "Baloo 2", ui-rounded, system-ui, sans-serif;
+    --font-body: "Nunito", ui-rounded, system-ui, sans-serif;
+    --font-display: "Baloo 2", ui-rounded, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    --background: 210 22% 7%;
+    --foreground: 210 12% 93%;
+    --card: 210 18% 11%;
+    --card-foreground: 210 12% 93%;
+    --popover: 210 18% 11%;
+    --popover-foreground: 210 12% 93%;
+    --primary: 94 78% 44%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 13% 18%;
+    --secondary-foreground: 210 12% 93%;
+    --muted: 210 13% 17%;
+    --muted-foreground: 210 10% 66%;
+    --accent: 199 85% 58%;
+    --accent-foreground: 210 22% 8%;
+    --destructive: 0 100% 68%;
+    --destructive-foreground: 210 22% 8%;
+    --border: 210 12% 20%;
+    --input: 210 12% 20%;
+    --ring: 94 78% 44%;
+
+    --brand: 94 78% 44%;
+    --brand-dark: 95 85% 26%;
+    --brand-light: 93 74% 55%;
+    --aqua: 199 85% 58%;
+    --sun: 51 100% 55%;
+    --tangerine: 35 100% 55%;
+    --coral: 0 100% 68%;
+    --grape: 277 100% 78%;
+    --ink: 210 12% 93%;
+    --ink-soft: 210 10% 68%;
+    --line: 210 12% 20%;
+    --surface: 210 20% 9%;
+
+    --frame: 210 12% 23%;
+    --tile: 210 14% 16%;
+    --track: 210 13% 19%;
+    --hover: 210 14% 17%;
+    --ink-faint: 210 8% 50%;
+    --brand-ink: 94 80% 62%;
+    --brand-tint: 96 35% 17%;
+    --sun-ink: 46 92% 60%;
+    --tangerine-ink: 32 100% 66%;
+    --card-shadow: 0 2px 0 hsl(var(--frame)), 0 16px 34px -24px hsl(0 0% 0% / 0.8);
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background-image: radial-gradient(1000px 460px at 50% -180px, hsl(94 98% 40% / 0.09), transparent 72%);
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image: radial-gradient(1000px 460px at 50% -180px, hsl(94 78% 44% / 0.12), transparent 72%);
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: hsl(94 98% 40% / 0.22);
+    color: hsl(var(--ink));
+  }
+}
+
+@layer utilities {
+  .glass,
+  .card-soft {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--line));
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+  }
+
+  .glass-soft {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--frame));
+    border-radius: 20px;
+    box-shadow: 0 2px 0 hsl(var(--frame));
+  }
+
+  .glow-cyan {
+    box-shadow: 0 4px 0 hsl(var(--brand-dark));
+  }
+
+  .glow-violet {
+    box-shadow: 0 4px 0 hsl(277 62% 62%);
+  }
+
+  .text-glow {
+    text-shadow: none;
+  }
+
+  .hairline {
+    background-image: linear-gradient(90deg, transparent, hsl(var(--line)), transparent);
+  }
+
+  .grid-lines,
+  .dots {
+    background-image: radial-gradient(hsl(var(--ink) / 0.09) 1.4px, transparent 1.4px);
+    background-size: 22px 22px;
+  }
+
+  .noise::after {
+    display: none;
+  }
+
+  .btn-game {
+    background: hsl(var(--brand));
+    color: hsl(0 0% 100%);
+    border-radius: 18px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 0 hsl(var(--brand-dark));
+    transition: transform 110ms ease, box-shadow 110ms ease, filter 110ms ease;
+  }
+  .btn-game:hover {
+    filter: brightness(1.05);
+  }
+  .btn-game:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 hsl(var(--brand-dark));
+  }
+
+  .btn-ghost {
+    background: hsl(var(--card));
+    color: hsl(var(--ink));
+    border: 2px solid hsl(var(--line));
+    border-radius: 18px;
+    font-weight: 800;
+    box-shadow: 0 4px 0 hsl(var(--line));
+    transition: transform 110ms ease, box-shadow 110ms ease, background 110ms ease;
+  }
+  .btn-ghost:hover {
+    background: hsl(var(--hover));
+  }
+  .btn-ghost:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 hsl(var(--line));
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .thin-scroll::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .thin-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .thin-scroll::-webkit-scrollbar-thumb {
+    background: hsl(var(--line));
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  .thin-scroll::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--frame));
+    background-clip: content-box;
+  }
+
+  .anim-float {
+    animation: floaty 16s ease-in-out infinite;
+  }
+  .anim-drift {
+    animation: drift 30s ease-in-out infinite alternate;
+  }
+  .anim-pulse-ring {
+    animation: pulseRing 2.2s ease-out infinite;
+  }
+  .anim-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 2.4s linear infinite;
+  }
+  .anim-pop {
+    animation: pop 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.5) both;
+  }
+  .anim-fade-up {
+    animation: fadeUp 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .anim-bounce-soft {
+    animation: bounceSoft 2.4s ease-in-out infinite;
+  }
+  .anim-wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  /* World map: the painted canvas breathes, the current quest radiates, signs sway. */
+  .anim-map {
+    animation: mapBreathe 38s ease-in-out infinite alternate;
+    transform-origin: 50% 55%;
+  }
+  .anim-rays {
+    animation: raysSpin 30s linear infinite;
+  }
+  .anim-bob {
+    animation: bobFloat 3s ease-in-out infinite;
+  }
+  .anim-sway {
+    animation: signSway 6.5s ease-in-out infinite;
+  }
+
+  /* Profile dashboard: cards rise in, bars grow from the baseline. */
+  .cb-rise {
+    animation: cbRise 0.62s cubic-bezier(0.16, 0.84, 0.28, 1) both;
+  }
+  .cb-fade {
+    animation: cbFade 0.42s ease both;
+  }
+  .cb-bar {
+    transform-origin: bottom;
+    animation: cbBar 0.95s cubic-bezier(0.22, 0.9, 0.3, 1) both;
+  }
+
+  /* A block cursor: the page's typing indicator and the run loop's live edge. */
+  .caret-blink::after {
+    content: "";
+    display: inline-block;
+    width: 0.5em;
+    height: 1em;
+    margin-left: 0.12em;
+    background: currentColor;
+    vertical-align: -0.12em;
+    animation: caretBlink 1.1s steps(1) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-float,
+  .anim-drift,
+  .anim-bounce-soft,
+  .anim-map,
+  .anim-rays,
+  .anim-bob,
+  .anim-sway,
+  .cb-rise,
+  .cb-fade,
+  .cb-bar,
+  .caret-blink::after {
+    animation: none !important;
+  }
+}
+
+@keyframes cbRise {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cbFade {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cbBar {
+  0% { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+@keyframes mapBreathe {
+  0% { transform: scale(1.015) translateX(-0.5%); }
+  100% { transform: scale(1.06) translateX(0.6%); }
+}
+
+@keyframes raysSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes bobFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes signSway {
+  0%, 100% { transform: rotate(var(--tilt, 0deg)); }
+  50% { transform: rotate(calc(var(--tilt, 0deg) + 1.5deg)); }
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -16px, 0); }
+}
+
+@keyframes drift {
+  0% { transform: translate3d(-3%, 0, 0) scale(1); }
+  100% { transform: translate3d(5%, -2%, 0) scale(1.1); }
+}
+
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 hsl(94 98% 40% / 0.42), 0 6px 0 hsl(var(--brand-dark)); }
+  70% { box-shadow: 0 0 0 16px hsl(94 98% 40% / 0), 0 6px 0 hsl(var(--brand-dark)); }
+  100% { box-shadow: 0 0 0 0 hsl(94 98% 40% / 0), 0 6px 0 hsl(var(--brand-dark)); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.86); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeUp {
+  0% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes caretBlink {
+  50% { opacity: 0; }
+}
