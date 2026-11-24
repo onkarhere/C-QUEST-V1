@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;family=Nunito:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" data-precedence="default"/><link rel="stylesheet" href="/C-QUEST-V1/assets/index-FZ75Qlf1.css" data-precedence="default"/><title>C//QUEST — Learn C as an Adventure</title><meta name="theme-color" content="#F7F7F7" media="(prefers-color-scheme: light)"/><meta name="description" content="Six worlds, thirty quests and a real C engine in your browser. Learn C from first principles by playing."/><link rel="modulepreload" href="/C-QUEST-V1/assets/index-CNlAoA-y.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/rolldown-runtime-WkwZ5CU-.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/GameProvider-DwP8PQ2F.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/link-Be8pD8J8.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/preload-helper-Dt2jLIyv.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/routes-NR0-9jyS.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/highlight-nnCv_FKp.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/sun-D8a4F5VL.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/play-M8D2mmkd.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/sparkles-DjJs4G5q.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/chevron-right-CWjgnjK_.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/trash-2-CjpdT8bg.js" fetchPriority="low"/><link rel="modulepreload" href="/C-QUEST-V1/assets/ThemeToggle-B-5b3X7s.js" fetchPriority="low"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><script>(function(){try{var k='cquest.theme',v=localStorage.getItem(k),d=v!=='light';document.documentElement.classList.toggle('dark',d);document.documentElement.style.colorScheme=d?'dark':'light';}catch(e){}})();</script></head><body><!--$--><!--$--><!--/$--><script>(function(a,f){let l;try{l=JSON.parse(sessionStorage.getItem(a)||"{}")}catch{return}const n=l?.[f||history.state?.__TSR_key];let c=!1;for(const t in n){const e=n[t],o=e?.scrollX,s=e?.scrollY;if(Number.isFinite(o)&&Number.isFinite(s)){if(t==="window")scrollTo(o,s),c=!0;else if(t)try{const r=document.querySelector(t);r&&(r.scrollLeft=o,r.scrollTop=s)}catch{}}}if(c)return;const i=location.hash.slice(1);if(i){const t=history.state?.__hashScrollIntoViewOptions??!0;if(t){const e=document.getElementById(i);e&&e.scrollIntoView(t)}return}scrollTo(0,0)})("tsr-scroll-restoration-v1_3");document.currentScript.remove()</script><!--/$--><section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false" data-react-aria-top-layer="true"></section><script data-tsr-stream-part="">(self.$R=self.$R||{})["tsr"]=[];self.$_TSR={h(){this.hydrated=!0,this.c()},e(){this.streamEnded=!0,this.c()},c(){this.hydrated&&this.streamEnded&&(delete self.$_TSR,delete self.$R.tsr)},p(e){this.initialized?e():this.buffer.push(e)},buffer:[]};$_TSR.router=($R=>$R[0]={manifest:$R[1]={routes:$R[2]={__root__:$R[3]={preloads:$R[4]=["/C-QUEST-V1/assets/index-CNlAoA-y.js","/C-QUEST-V1/assets/rolldown-runtime-WkwZ5CU-.js","/C-QUEST-V1/assets/GameProvider-DwP8PQ2F.js","/C-QUEST-V1/assets/link-Be8pD8J8.js","/C-QUEST-V1/assets/preload-helper-Dt2jLIyv.js"],scripts:$R[5]=[$R[6]={attrs:$R[7]={type:"module",async:!0,src:"/C-QUEST-V1/assets/index-CNlAoA-y.js"}}]}}},matches:$R[8]=[$R[9]={i:"__root__#",u:1795554357464,s:"success",ssr:!0}],dehydratedData:$R[10]={query:$R[11]={stream:$R[12]=($R[13]=(stream) => new ReadableStream({ start(controller) {
+	stream.on({
+		next(value) {
+			try {
+				controller.enqueue(value);
+			} catch (_error) {}
+		},
+		throw(value) {
+			controller.error(value);
+		},
+		return() {
+			try {
+				controller.close();
+			} catch (_error) {}
+		}
+	});
+} }))($R[14]=($R[15]=(live) => {
+	const buffer = [];
+	const listeners = [];
+	let alive = true;
+	let success = false;
+	let count = 0;
+	const internal = {
+		flush(value, mode, x) {
+			live > 1 || buffer.push(value);
+			for (x = 0; x < count; x++) {
+				const listener = listeners[x];
+				if (listener) listener[mode](value);
+			}
+		},
+		up(listener, x, z, current) {
+			for (x = 0, z = buffer.length; x < z; x++) {
+				current = buffer[x];
+				if (!alive && x === z - 1) listener[success ? "return" : "throw"](current);
+				else listener.next(current);
+			}
+		},
+		on(listener, temp = 0) {
+			if (live > 1) throw new Error("Stream consumed");
+			let subscribed = alive;
+			if (alive) {
+				for (temp = 0; temp < count; temp++) if (!listeners[temp]) break;
+				if (temp === count) count++;
+				listeners[temp] = listener;
+			}
+			internal.up(listener);
+			if (live) {
+				live = 2;
+				buffer.length = 0;
+			}
+			return () => {
+				if (alive && subscribed) {
+					subscribed = false;
+					listeners[temp] = void 0;
+					while (count > 0 && !listeners[count - 1]) count--;
+					listeners.length = count;
+				}
+			};
+		}
+	};
+	return {
+		__SEROVAL_STREAM__: true,
+		on(listener) {
+			return internal.on(listener);
+		},
+		next(value) {
+			if (alive) internal.flush(value, "next");
+		},
+		throw(value) {
+			if (alive) {
+				internal.flush(value, "throw");
+				alive = false;
+				success = false;
+				listeners.length = 0;
+			}
+		},
+		return(value) {
+			if (alive) {
+				internal.flush(value, "return");
+				alive = false;
+				success = true;
+				listeners.length = 0;
+			}
+		}
+	};
+})(1))}}})($R["tsr"]);{let s=document.currentScript,p;while((p=s.previousElementSibling)&&p.hasAttribute('data-tsr-stream-part'))p.remove();s.remove()}</script><script type="module" async="" src="/C-QUEST-V1/assets/index-CNlAoA-y.js"></script><script>document.currentScript.remove();/*$tsr-stream-boundary*/</script><script>($R=>$R[14].return(void 0))($R["tsr"]);$_TSR.e();document.currentScript.remove()</script></body></html>
